@@ -156,8 +156,3 @@
 #     print(rev)
 #
 # reverse_str(input("Enter a number: "))
-def main():
-    x = "Spam"
-    base = x[1:3]
-    print(base)
-main()
