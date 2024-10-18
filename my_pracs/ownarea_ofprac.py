@@ -240,3 +240,145 @@ def free_fall(h):
 free_fall(int(input("Enter please height of object from which you will jump (m): ")))
 
 
+def ideal_gas(p, v, t):
+# /// formule: PV = nRT
+# P - pressure (pascales)
+# V - volume(liters)
+# n - amount of thing (mols) 
+# R - const of gas, equal to - 8.314 (joules/(mol*K))
+# T - tmp in Kelvins (K) ///
+
+   pv = p * v
+   t = t + 273.15
+#    convert from celsius to kelvin 
+   rt = 8.314 * t
+   n = pv / rt
+
+   print(f"\nThe amount of gas (moles) is: {n:.2f}")
+
+ideal_gas(
+    float(input("Enter please pressure (pascales): ").replace(" ", "")),
+    float(input("Enter please volume (liters): ")),
+    float(input("Enter please temperature (°C): "))
+)
+
+def area_triangle(b, h):
+    area = (b * h) / 2
+    print(f"\nArea will be: {round(area)}\nLong is: {b}\nHeight is: {h}")
+
+area_triangle(float(input("Enter a long: ")), float(input("Enter a height: ")))
+
+
+import math
+
+def area_triangle2(s1, s2, s3):
+    s = sum((s1, s2, s3)) / 2
+    area = math.sqrt((s * (s - s1) * (s - s2) * (s - s3)))
+    print(f"\nArea will be: {round(area)}")
+
+area_triangle2(
+    float(input("Enter long first part of triangle: ")),
+    float(input("Enter long second part of triangle: ")),
+    float(input("Enter long third part of triangle: "))
+)
+
+import math
+
+def correct_angles(s, n):
+    area = (n * math.pow(s, 2)) / (4 * (math.tan(math.pi / n)))
+    print(f"\nArea is: {round(area)} (m2)")
+
+correct_angles(
+    float(input("Enter a long of side: ")),
+    int(input("Enter amount of sides: "))
+)
+
+def time(d, hr, m, s):
+    sec_ind = d * 24 * 60 * 60
+    sec_inhr = hr * 60 * 60
+    sec_inm = m * 60
+    summary = sum((sec_ind, sec_inhr, sec_inm, s))
+    print(f"\nTotal amount of seconds is: {summary}")
+
+time(
+    int(input("Enter the amount of days: ")),
+    int(input("Enter the hours: ")),
+    int(input("Enter the minutes: ")),
+    int(input("Enter the seconds: "))
+)
+
+def time_updated(d, hr, m, s):
+    sec_ind = d * 24 * 60 * 60
+    sec_inhr = hr * 60 * 60
+    sec_inm = m * 60
+    summary = sum((sec_ind, sec_inhr, sec_inm, s))
+    print(f"\nTotal amount of seconds is: {summary}")
+    # ///
+    d_sring = str(d)
+    hr_string ="%2s" % str(hr)
+    m_string = "%2s" % str(m)
+    sec_string = "%2s" % str(s)
+    print(f"{d_sring}:{hr_string}:{m_string}:{sec_string}".replace(" ", "0"))
+    
+time_updated(
+    int(input("Enter the amount of days: ")),
+    int(input("Enter the hours: ")),
+    int(input("Enter the minutes: ")),
+    int(input("Enter the seconds: "))
+)
+
+
+import time
+
+def current_time():
+    a = time.asctime()
+    print(f"\nCurrent time is: {a}")
+current_time()
+
+import math
+
+def when_easter(year):
+    a = year % 19
+    b = math.floor(year / 100)
+    c = year % 100
+    d = math.floor(b / 4)
+    e = b % 4
+    f = math.floor((b + 8) / 25)
+    g = math.floor((b - f + 1) / 3)
+    h = (19 * a + b - d - g + 15) % 30
+    i = math.floor(c / 4)
+    k = c % 4
+    l = (32 + (2 * e) + (2 * i) - h - k) % 7
+    m = math.floor((a + 11 * h + 22 * l) / 451)
+    month = (h + l + (7 * m) + 114) / 31
+    day = ((h + l - 7 * m + 114) % 31) + 1
+
+    print(f"The month will be: {int(month)}\nThe day will be: {day}")
+
+when_easter(int(input("Enter the year: ")))
+
+import math
+
+def body_mass_index(height, weight):
+# if users inputs are in inches, fts, pounds
+    # bmi_notinCI = (weight / math.pow(height, 2)) * 703
+    # print(f"Your body mass index is: {bmi_notinCI}")
+ 
+    bmi = weight / math.pow(height, 2)
+    print(f"Your body mass index is: {bmi:.4f}")
+
+body_mass_index(
+    float(input("Enter your height: ")),
+    float(input("Enter your weight: "))
+)
+
+import math
+
+def temp_wind(ta, v):
+    wci = 13.12 + 0.6215 * ta - 11.37 * (v ** 0.16) + 0.3965 * (ta * (v ** 0.16))
+    print(f"Cofficient is: {math.ceil(wci)}")
+    # WCI = 13.12 + 0.6215 * Ta - 11.37 * V0.16 + 0.3965 * Tav0.16
+temp_wind(
+    float(input("Enter temperature of winds (°С): ")),
+    float(input("Enter the speed of winds: "))
+)
