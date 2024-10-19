@@ -1,6 +1,25 @@
+# Made by Oleksii (Lex) Khodus 
+# My github - https://github.com/oKhodus
+# Exercises from "The Python Workbook: A Brief Introduction with Exercises
+# and Solutions. by Ben Stephensons"
+# 
+#            __    __  __                        __                     
+#           /  |  /  |/  |                      /  |                    
+#   ______  $$ | /$$/ $$ |____    ______    ____$$ | __    __   _______ 
+#  /      \ $$ |/$$/  $$      \  /      \  /    $$ |/  |  /  | /       |
+# /$$$$$$  |$$  $$<   $$$$$$$  |/$$$$$$  |/$$$$$$$ |$$ |  $$ |/$$$$$$$/ 
+# $$ |  $$ |$$$$$  \  $$ |  $$ |$$ |  $$ |$$ |  $$ |$$ |  $$ |$$      \ 
+# $$ \__$$ |$$ |$$  \ $$ |  $$ |$$ \__$$ |$$ \__$$ |$$ \__$$ | $$$$$$  |
+# $$    $$/ $$ | $$  |$$ |  $$ |$$    $$/ $$    $$ |$$    $$/ /     $$/ 
+#  $$$$$$/  $$/   $$/ $$/   $$/  $$$$$$/   $$$$$$$/  $$$$$$/  $$$$$$$/  
+                                                                      
+                                                                      
+                                                    
+# Chapter ^1
+
 def nameNmail():
     print("Oleksii Khodus")
-    print("exalchel@gmail.com")
+    print("hello@yahoo.com")
 nameNmail()
 
 
@@ -239,7 +258,6 @@ def free_fall(h):
 
 free_fall(int(input("Enter please height of object from which you will jump (m): ")))
 
-
 def ideal_gas(p, v, t):
 # /// formule: PV = nRT
 # P - pressure (pascales)
@@ -378,7 +396,60 @@ def temp_wind(ta, v):
     wci = 13.12 + 0.6215 * ta - 11.37 * (v ** 0.16) + 0.3965 * (ta * (v ** 0.16))
     print(f"Cofficient is: {math.ceil(wci)}")
     # WCI = 13.12 + 0.6215 * Ta - 11.37 * V0.16 + 0.3965 * Tav0.16
+
 temp_wind(
     float(input("Enter temperature of winds (°С): ")),
     float(input("Enter the speed of winds: "))
 )
+
+
+def converter_temp(cels):
+    kelvin = cels + 273.15
+    fahr = (cels * 9/5) + 32
+    print(f"\nIn Fahrenheit: {fahr:.2f}\nIn Kelvin: {kelvin:.2f}")
+
+converter_temp(
+    float(input("Enter a tempreture in Celsius: "))
+)
+
+def pressure_calc(press):
+    psi = press / 6.895
+    mercury = press * 7.501
+    atmo = press / 101.3 
+    print(f"\nYour output will be: \n{psi:.2f} in PSI, \n{mercury:.2f} in mm of mercury, \n{atmo:.2f} in atmosphere")
+
+pressure_calc(float(input("Enter please value of pressure: ")))
+
+def nums(n):
+    listed = list(map(int, n))
+    summary = sum(listed)
+    print(summary)
+
+nums(input("Enter your number: "))
+
+def triple_int(n1, n2, n3):
+    listed = [n1, n2, n3]
+    s = sorted(listed)
+    print(f"{s[0]}, {s[1]}, {s[2]}")
+#  /// another solution
+    mn = min(listed)
+    mx = max(listed)
+    sum_minused = sum(listed) - mn - mx
+    print(f"{mn}, {sum_minused}, {mx}")
+
+triple_int(
+    int(input("Enter a first number: ")),
+    int(input("Enter a second number: ")),
+    int(input("Enter a third number: "))
+)
+
+def yesterday_bread(a):
+    base_price = 3.49 * a
+    # discount is 60%
+    discounted = base_price * 0.6
+    total = base_price - discounted
+    print(f"\nBase price of bread is: $ {base_price:.2f} \
+          \nDiscount amount: $ {discounted:.2f} \
+          \nYour total price for your breads: $ {(total):.2f}")
+
+yesterday_bread(int(input("Enter amount of breads: ")))
