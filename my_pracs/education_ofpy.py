@@ -419,11 +419,35 @@ def task34():
           \nDiscount amount: $ {discounted:.2f} \
           \nYour total price for your breads: $ {(total):.2f}")
 
+# Chapter ^2
+# Exercise ^35
+def task35():
+    num = int(input("Enter a number: "))
+    if num % 2 == 0:
+        print(f"Your num {num} is even.")
+    else:
+        print(f"Your num {num} is odd.")
+
+# Exercise ^36
+def task36():
+    human_year = int(input("Enter amount of years: "))
+    dog_year = 0
+    if human_year <= 2:
+        dog_year = human_year * 10.5
+        print(f"Year for dog will be: {dog_year}")
+    elif human_year >= 2:
+        dog_year += 21
+        dog_year = dog_year + (human_year - 2) * 4
+        print(f"Year for dog will be: {dog_year}")
+    else:
+        print(f"Incorrect value of input...///")
+
+
 
 def main():
     while True:
-        choice = input("Enter a number of task (at the moment range is in [1 - 34])\
-        \nif you wanna stop program enter [0]: ")
+        choice = input("\nEnter a number of task (at the moment range is in [1 - 36])\
+        \nif you wanna stop program enter [stop]: ")
         tasks = {
     '1': task1, '2': task2, '3': task3, '4': task4, '5': task5,
     '6': task6, '7': task7, '8': task8, '9': task9, '10': task10,
@@ -431,14 +455,17 @@ def main():
     '16': task16, '17': task17, '18': task18, '19': task19, '20': task20,
     '21': task21, '22': task22, '23': task23, '24': task24, '25': task25,
     '26': task26, '27': task27, '28': task28, '29': task29, '30': task30,
-    '31': task31, '32': task32, '33': task33, '34': task34
+    '31': task31, '32': task32, '33': task33, '34': task34, '35': task35,
+    '36': task36
+
 }
-        if choice == "0":
-            print("Program was stopped///...")
+        if choice == "stop":
+            print("Program was stopped///...\n")
             break
         elif choice in tasks:
+            print("\n")
             tasks[choice]()
         else:
-            print(f"Your input |{choice}| isn't correct, please enter a number in range [1 - 34]")
+            print(f"Your input |{choice}| isn't correct, please enter a number in range [1 - 34]\n")
 if __name__ == "__main__":
     main()
