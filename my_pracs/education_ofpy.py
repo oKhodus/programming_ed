@@ -442,12 +442,95 @@ def task36():
     else:
         print(f"Incorrect value of input...///")
 
+def task37():
+    letter = input("Enter a letter: ")
+    vowels = ["a", "e", "i", "o", "u"
+              "A", "E", "I", "O", "U"]
+    if letter in vowels:
+        print(f"Yes, correct your letter |{letter}| is vowel.")
+    elif letter == "y":
+        print("Y/y is vowel and at the same time is not.")
+    else:
+        print(f"Unfortunately, your letter |{letter}| is consonant.")
+
+def task38():
+    dict_figs = {
+        "3": "triangle", "4": "square", 
+        "5": "pentagon", "6": "hexagon",
+        "7": "heptagon", "8": "octagon",
+        "9": "nonagon", "10": "decagon"
+    }
+    angle_inp = input("Enter a value of angles (3-10): ")
+    if angle_inp in dict_figs:
+        print(f"Your figure is: {dict_figs[angle_inp]}")
+    else:
+        print(f"Your input is out of the range 3-10")
+
+def task39():
+    monthToDay = {1: 31, 2: 28, 3: 31, 4: 30,
+                 5: 31, 6: 30, 7: 31, 8: 31, 
+                 9: 30, 10: 31, 11: 30, 12: 31}
+    
+    m_inp = int(input("Enter a number of month (1-12): "))
+
+    if m_inp in monthToDay:
+        print(f"In this month will be: {monthToDay[m_inp]}")
+    else:
+        print("Incorrect input")
+
+def task40():
+
+    dict_items = {
+        130: "Jackhammer",
+        106: "Gas lawn mower",
+        70: "Alarm clock",
+        40: "Quiet room"
+    }
+
+    db_inp = int(input("Enter a level of noise in range [40 - 130] (db): "))
+
+    if db_inp in dict_items:
+        print(f"Value {db_inp} for {dict_items[db_inp]}")
+
+    elif 70 > db_inp > 40:
+        print(f"Value {db_inp} between {dict_items[70]} and {dict_items[40]}")
+    elif 106 > db_inp > 70:
+        print(f"Value {db_inp} between {dict_items[106]} and {dict_items[70]}")
+    elif 130 > db_inp > 106:
+        print(f"Value {db_inp} between {dict_items[130]} and {dict_items[106]}")
+    else:
+        print(f"Value is not in range [40 - 130]")
+
+def task41():
+    first_angle = float(input("Enter a value of first angle: "))
+    second_angle = float(input("Enter a value of second angle: "))
+    third_angle = float(input("Enter a value of first angle: "))
+
+    list_angles = list((first_angle, second_angle, third_angle))
+
+    mn = min(list_angles)
+    mx = max(list_angles)
+    
+    # summary = sum(list_angles)
+    # if (summary / 3) == first_angle:
+    #     print("Your triangle is Equilateral")
+    if mn == mx:
+        print("Your triangle is Equilateral")
+
+    elif list_angles[0] == list_angles[1] \
+    or list_angles[0] == list_angles[2] \
+    or list_angles[1] == list_angles[2]:
+
+        print(f"Your triangle is Isosceles")
+    else:
+        print(f"Your triangle is Scalene")
+
 
 
 def main():
     while True:
-        choice = input("\nEnter a number of task (at the moment range is in [1 - 36])\
-        \nif you wanna stop program enter [stop]: ")
+        choice = input("\nEnter a number of task (at the moment range is in [1 - 41])\
+        \nor enter [stop] if you wanna stop program : ")
         tasks = {
     '1': task1, '2': task2, '3': task3, '4': task4, '5': task5,
     '6': task6, '7': task7, '8': task8, '9': task9, '10': task10,
@@ -456,7 +539,8 @@ def main():
     '21': task21, '22': task22, '23': task23, '24': task24, '25': task25,
     '26': task26, '27': task27, '28': task28, '29': task29, '30': task30,
     '31': task31, '32': task32, '33': task33, '34': task34, '35': task35,
-    '36': task36
+    '36': task36, '37': task37, '38': task38, '39': task39, '40': task40,
+    '41': task41,
 
 }
         if choice == "stop":
