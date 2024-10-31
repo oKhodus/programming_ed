@@ -526,10 +526,44 @@ def task41():
         print(f"Your triangle is Scalene")
 
 
+def task42():
+    notes = {"C": 261.63,  "D": 293.66,
+              "E": 329.63, "F": 349.23, 
+              "G": 392.00, "A": 440.00, "B": 493.88}
+    # all notes in 4-th octave
+    
+    note = input("Enter a value of note (C - B) in range of [0-8]: ")
+    
+    note_octave = list(note)
+    if note_octave[0] in notes:
+        octave = int(note_octave[1])
+        if 0 <= octave <= 8:
+            calc = notes[note_octave[0]] / 2 ** (4 - octave)
+            print(calc)
+        else:
+            print("Invalid input")
+
+def task43():
+    hz = float(input("Enter a value of sound (Hz): "))
+    c = 261.63
+    d = 293.66
+    e = 329.63
+    f = 349.23
+    g = 392.00
+    a = 440.00
+    b = 493.88
+    name_notes = {c:"C", d:"D", e:"E", f:"F", g:"G", a:"A", b:"B"}
+
+    if any(val - 1 <= hz <= val + 1 for val in name_notes):
+        for val in name_notes:
+            if val - 1 <= hz <= val + 1:
+                print(f"This note is {name_notes[val]}")
+    else:
+        print("NOT FOUND")
 
 def main():
     while True:
-        choice = input("\nEnter a number of task (at the moment range is in [1 - 41])\
+        choice = input("\nEnter a number of task (at the moment range is in [1 - 43])\
         \nor enter [stop] if you wanna stop program : ")
         tasks = {
     '1': task1, '2': task2, '3': task3, '4': task4, '5': task5,
@@ -540,7 +574,7 @@ def main():
     '26': task26, '27': task27, '28': task28, '29': task29, '30': task30,
     '31': task31, '32': task32, '33': task33, '34': task34, '35': task35,
     '36': task36, '37': task37, '38': task38, '39': task39, '40': task40,
-    '41': task41,
+    '41': task41, '42': task42, '43': task43,
 
 }
         if choice == "stop":
