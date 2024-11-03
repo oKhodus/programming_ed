@@ -561,9 +561,59 @@ def task43():
     else:
         print("NOT FOUND")
 
+
+def task44():
+    banknotes = {
+        1: "George Washington",
+        2: "Tomas Jefferson",
+        5: "Abraham Lincoln", 
+        10: "Alexander Hammilton",
+        20: "Andrew Jackson",
+        50: "Willis Grant",
+        100: "Benjamin Franklin"
+    }
+    value_banknote = int(input("Enter a value of your banknote: $ "))
+
+    if value_banknote in banknotes:
+        print(f"On your banknote depicted {banknotes[value_banknote]}")
+    else:
+        print("Your value is incorrect, nominale of banknotes is: 1, 2, 5, 10, 20, 50 and 100 dollars.")
+
+def task45():
+    holidays = {
+        "1 January": "New Year",
+        "1 July": "Canada Day",
+        "25 December": "Christmas"
+    }
+    val_user = input("Enter day and month: ")
+    if val_user in holidays:
+        print(f"Your holiday is: {holidays[val_user]}.")
+    else:
+        print("Your date is not a holiday.")
+
+def task46():
+    coordinates_black = {
+        "a1", "a3", "a5", "a7", 
+        "b2", "b4", "b6", "b8",
+        "c1", "c3", "c5", "c7",
+        "d2", "d4", "d6", "d8",
+        "e1", "e3", "e5", "e7",
+        "f2", "f4", "f6", "f8",
+        "g1", "g3", "g5", "g7",
+        "h2", "h4", "h6", "h8"
+    }
+    # method_black = {coord: "black" for coord in coordinates_black}
+    coordinate = input("Enter a coordinate of square (for example - a1): ")
+
+    if coordinate in coordinates_black:
+        print(f"Your square {coordinate} is: black")
+    else:
+        print(f"Your square {coordinate} is: white")
+
+
 def main():
     while True:
-        choice = input("\nEnter a number of task (at the moment range is in [1 - 43])\
+        choice = input("\nEnter a number of task (at the moment range is in [1 - 46])\
         \nor enter [stop] if you wanna stop program : ")
         tasks = {
     '1': task1, '2': task2, '3': task3, '4': task4, '5': task5,
@@ -574,7 +624,8 @@ def main():
     '26': task26, '27': task27, '28': task28, '29': task29, '30': task30,
     '31': task31, '32': task32, '33': task33, '34': task34, '35': task35,
     '36': task36, '37': task37, '38': task38, '39': task39, '40': task40,
-    '41': task41, '42': task42, '43': task43,
+    '41': task41, '42': task42, '43': task43, '44': task44, '45': task45,
+    '46': task46
 
 }
         if choice == "stop":
