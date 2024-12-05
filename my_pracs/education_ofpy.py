@@ -610,10 +610,74 @@ def task46():
     else:
         print(f"Your square {coordinate} is: white")
 
+def task47():
+    months = {
+        "Март 20" : "Весна",
+        "Июнь 21" : "Лето",
+        "Сентябрь 22" : "Осень",
+        "21 Декабря" : "Зима"
+    }
+
+    inp = input("Enter a day and month: ")
+    
+    if inp in months:
+        print(f"{months[inp]}")
+
+def task48():
+
+    zodiacs = ["Козерог", "Водолей", "Рыбы",
+                "Овен", "Телец", "Близнецы",
+                "Рак", "Лев", "Дева",
+                "Весы", "Скорпион", "Стрелец"]
+    
+    months = {
+        "Января": 1, "Февраля": 2,
+        "Марта": 3, "Апреля": 4,
+        "Мая": 5, "Июня": 6,
+        "Июля": 7, "Августа": 8,
+        "Сентября": 9, "Октября": 10,
+        "Ноября": 11, "Декабря": 12,
+    }
+
+    user_birth = input("Введите дату вашего рождение (число и месяц): ")
+
+    date = user_birth.split()
+    number = int(date[0])
+    month = date[1].capitalize()
+
+    if month in months:
+        if (number in range(22, 31 + 1) or number in range(1, 19 + 1)) and months[month] == 1:
+            print(zodiacs[0])
+        elif number in range(20, 31 + 1) or number in range(1, 18 + 1) and months[month] == 2:
+            print(zodiacs[1])
+        elif number in range(19, 28 + 1) or number in range(1, 20 + 1) and months[month] == 3:
+            print(zodiacs[2])
+        elif number in range(21, 31 + 1) or number in range(1, 19 + 1) and months[month] == 4:
+            print(zodiacs[3])
+        elif number in range(20, 30 + 1) or number in range(1, 20 + 1) and months[month] == 5:
+            print(zodiacs[4])
+        elif number in range(21, 31 + 1) or number in range(1, 20 + 1) and months[month] == 6:
+            print(zodiacs[5])
+        elif number in range(21, 30 + 1) or number in range(1, 22 + 1) and months[month] == 7:
+            print(zodiacs[6])
+        elif number in range(23, 31 + 1) or number in range(1, 22 + 1) and months[month] == 8:
+            print(zodiacs[7])
+        elif number in range(23, 31 + 1) or number in range(1, 22 + 1) and months[month] == 9:
+            print(zodiacs[8])
+        elif number in range(23, 30 + 1) or number in range(1, 22 + 1) and months[month] == 10:
+            print(zodiacs[9])
+        elif number in range(23, 31 + 1) or number in range(1, 21 + 1) and months[month] == 11:
+            print(zodiacs[10])
+        elif number in range(22, 30 + 1) or number in range(1, 21 + 1) and months[month] == 12:
+            print(zodiacs[11])
+    else:
+        pass
+
+
 
 def main():
     while True:
-        choice = input("\nEnter a number of task (at the moment range is in [1 - 46])\
+        choice = input("\nEnter a number of task (at the moment range is in [1 - 48])\
         \nor enter [stop] if you wanna stop program : ")
         tasks = {
     '1': task1, '2': task2, '3': task3, '4': task4, '5': task5,
@@ -625,7 +689,7 @@ def main():
     '31': task31, '32': task32, '33': task33, '34': task34, '35': task35,
     '36': task36, '37': task37, '38': task38, '39': task39, '40': task40,
     '41': task41, '42': task42, '43': task43, '44': task44, '45': task45,
-    '46': task46
+    '46': task46, '47': task47, '48': task48
 
 }
         if choice == "stop":
