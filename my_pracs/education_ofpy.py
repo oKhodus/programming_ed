@@ -673,11 +673,19 @@ def task48():
     else:
         pass
 
-
+def task49():
+    animals = {2000: "Дракон", 2001: "Змея", 2002: "Лошадь",
+               2003: "Коза", 2004: "Обезьяна", 2005: "Петух",
+               2006: "Собака", 2007: "Свинья", 2008: "Крыса",
+               2009: "Бык", 2010: "Тигр", 2011: "Кролик"
+}
+    user_birth = int(input("Enter your year of birth: "))
+    if user_birth in animals:
+        print(animals[user_birth])
 
 def main():
     while True:
-        choice = input("\nEnter a number of task (at the moment range is in [1 - 48])\
+        choice = input("\nEnter a number of task (at the moment range is in [1 - 49])\
         \nor enter [stop] if you wanna stop program : ")
         tasks = {
     '1': task1, '2': task2, '3': task3, '4': task4, '5': task5,
@@ -689,7 +697,7 @@ def main():
     '31': task31, '32': task32, '33': task33, '34': task34, '35': task35,
     '36': task36, '37': task37, '38': task38, '39': task39, '40': task40,
     '41': task41, '42': task42, '43': task43, '44': task44, '45': task45,
-    '46': task46, '47': task47, '48': task48
+    '46': task46, '47': task47, '48': task48, '49': task49
 
 }
         if choice == "stop":
