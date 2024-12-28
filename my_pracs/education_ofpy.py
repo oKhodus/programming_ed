@@ -686,24 +686,18 @@ def task49():
 
 def task50():
     user_magnitude = float(input("Enter a value of magnitude: "))
-    if user_magnitude < 2.0:
-        print("Описание землетрясения: Минимальное")
-    elif user_magnitude >= 2.0 and user_magnitude < 3.0:
-        print("Описание землетрясения: Очень слабое")
-    elif user_magnitude >= 3.0 and user_magnitude < 4.0:
-        print("Описание землетрясения: Слабое")
-    elif user_magnitude >= 4.0 and user_magnitude < 5.0:
-        print("Описание землетрясения: Промежуточное")
-    elif user_magnitude >= 5.0 and user_magnitude < 6.0:
-        print("Описание землетрясения: Умеренное")
-    elif user_magnitude >= 6.0 and user_magnitude < 7.0:
-        print("Описание землетрясения: Сильное")
-    elif user_magnitude >= 7.0 and user_magnitude < 8.0:
-        print("Описание землетрясения: Очень сильное")
-    elif user_magnitude >= 8.0 and user_magnitude < 10.0:
-        print("Описание землетрясения: Огромное")
-    elif user_magnitude >= 10.0:
-        print("Описание землетрясения: Разрушительное")
+    description = (
+        "Минимальное" if user_magnitude < 2.0 else
+        "Очень слабое" if user_magnitude < 3.0 else
+        "Слабое" if user_magnitude < 4.0 else
+        "Промежуточное" if user_magnitude < 5.0 else
+        "Умеренное" if user_magnitude < 6.0 else
+        "Сильное" if user_magnitude < 7.0 else
+        "Очень сильное" if user_magnitude < 8.0 else
+        "Огромное" if user_magnitude < 10.0 else
+        "Разрушительное"
+    )
+    print(f"Описание землетрясения: {description}")
 
 
 def main():
