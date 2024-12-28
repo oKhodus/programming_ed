@@ -700,9 +700,42 @@ def task50():
     print(f"Описание землетрясения: {description}")
 
 
+def task51():
+    import math
+    users_a_val = int(input("Enter a value of [a]: "))
+    users_b_val = int(input("Enter a value of [b]: "))
+    users_c_val = int(input("Enter a value of [c]: "))
+
+    discriminant = users_b_val ** 2 - 4 *users_a_val * users_c_val
+
+    if discriminant < 0:
+        print("\nD is negative, that's why sollutions impossible to calculate...\n")
+        return
+
+    discriminant_sqrt = math.sqrt(discriminant)
+
+    x1 = (-(users_b_val) + discriminant_sqrt) / (2 * users_a_val)
+    x2 = (-(users_b_val) - discriminant_sqrt) / (2 * users_a_val)
+
+    solution_one = users_a_val*(x1**2) + users_b_val*x1 + users_c_val
+    solution_two = users_a_val*(x2**2) + users_b_val*x2 + users_c_val
+
+    if solution_one == 0 and solution_two == 0:
+        print(f"\nAll solutions [{x1, x2}] are correct\n")
+        print(f"Solution one was: {solution_one}")
+        print(f"Solution two was: {solution_two}")
+    elif solution_one == 0:
+        print(f"\nOnly solution one [{x1}] is correct\n")
+        print(f"Solution one was: {solution_one}")
+    elif solution_two == 0:
+        print(f"\nOnly solution two [{x2}] is correct")
+        print(f"Solution two was: {solution_two}")
+    else:
+        print(f"\nNone of the solutions [{x1, x2}] aren't correct")
+
 def main():
     while True:
-        choice = input("\nEnter a number of task (at the moment range is in [1 - 50])\
+        choice = input("\nEnter a number of task (at the moment range is in [1 - 51])\
         \nor enter [stop] if you wanna stop program : ")
         tasks = {
     '1': task1, '2': task2, '3': task3, '4': task4, '5': task5,
@@ -714,7 +747,8 @@ def main():
     '31': task31, '32': task32, '33': task33, '34': task34, '35': task35,
     '36': task36, '37': task37, '38': task38, '39': task39, '40': task40,
     '41': task41, '42': task42, '43': task43, '44': task44, '45': task45,
-    '46': task46, '47': task47, '48': task48, '49': task49, '50': task50
+    '46': task46, '47': task47, '48': task48, '49': task49, '50': task50,
+    '51': task51
 
 }
         if choice == "stop":
