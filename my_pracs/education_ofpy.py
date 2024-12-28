@@ -709,7 +709,7 @@ def task51():
     discriminant = users_b_val ** 2 - 4 *users_a_val * users_c_val
 
     if discriminant < 0:
-        print("\nD is negative, that's why sollutions impossible to calculate...\n")
+        print("\nD is negative, that's why sollutions are impossible to calculate...\n")
         return
 
     discriminant_sqrt = math.sqrt(discriminant)
@@ -733,9 +733,62 @@ def task51():
     else:
         print(f"\nNone of the solutions [{x1, x2}] aren't correct")
 
+def task52():
+    # Упражнение 52. Буквенные оценки – в числовые
+    user_mark = input("Enter a value of mark (from A+ to F): ")
+    marks = (
+        4.0 if user_mark == "A+" or user_mark == "A" else
+        3.7 if user_mark == "A-" else
+        3.3 if user_mark == "B+" else
+        3.0 if user_mark == "B" else
+        2.7 if user_mark == "B-" else
+        2.3 if user_mark == "C+" else
+        2.0 if user_mark == "C" else
+        1.7 if user_mark == "C-" else
+        1.3 if user_mark == "D+" else
+        1.0 if user_mark == "D" else
+        0 if user_mark == "F" else
+        "Incorrect value of mark"
+    )
+    print(f"Your mark in nums wiil be: {marks}")
+
+def task53():
+    # Упражнение 53. Числовые оценки – в буквенные
+    user_mark = float(input("Enter a value of mark (from 0 to 4.0+): "))
+
+    if user_mark >= 4.0:
+        mark = "A+"
+    elif user_mark >= 3.7:
+        mark = "A"
+    elif user_mark >= 3.3:
+        mark = "A-"
+    elif user_mark >= 3.0:
+        mark = "B+"
+    elif user_mark >= 2.7:
+        mark = "B"
+    elif user_mark >= 2.3:
+        mark = "B-"
+    elif user_mark >= 2.0:
+        mark = "C+"
+    elif user_mark >= 1.7:
+        mark = "C"
+    elif user_mark >= 1.3:
+        mark = "C-"
+    elif user_mark >= 1.0:
+        mark = "D+"
+    elif user_mark >= 1.0:
+        mark = "D"
+    elif user_mark == 0:
+        mark = "F"
+    else:
+        mark = "Incorrect value of mark"
+    
+    print(f"Your mark in letters will be: {mark}")
+
+
 def main():
     while True:
-        choice = input("\nEnter a number of task (at the moment range is in [1 - 51])\
+        choice = input("\nEnter a number of task (at the moment range is in [1 - 53])\
         \nor enter [stop] if you wanna stop program : ")
         tasks = {
     '1': task1, '2': task2, '3': task3, '4': task4, '5': task5,
@@ -748,7 +801,7 @@ def main():
     '36': task36, '37': task37, '38': task38, '39': task39, '40': task40,
     '41': task41, '42': task42, '43': task43, '44': task44, '45': task45,
     '46': task46, '47': task47, '48': task48, '49': task49, '50': task50,
-    '51': task51
+    '51': task51, '52': task52, '53': task53,
 
 }
         if choice == "stop":
