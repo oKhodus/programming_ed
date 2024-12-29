@@ -785,10 +785,93 @@ def task53():
     
     print(f"Your mark in letters will be: {mark}")
 
+def task54():
+    users_rate = float(input("Enter a value of employer's rate: "))
+    add_fin = 2400.00
+    if users_rate == 0.0:
+        message = "Low rate"
+    elif users_rate == 0.4:
+        message = "Good rate"
+    elif users_rate >= 0.6:
+        message = "High rate"
+    else:
+        print(f"Your value {users_rate} isn't correct, please enter only [0.0, 0.4, 0.6 or more]")
+        return
+    benefits = add_fin * users_rate
+    print(f"{message}: amount of benefits - {benefits:.2f}")
+
+def task55():
+    users_color = int(input("Enter a length of wave (a part of spectre [380-750]): "))
+    incorrect = f"{users_color} is out of the range [380-750]"
+
+    if users_color < 380 or users_color > 750:
+        print(incorrect)
+        return
+
+    print("Violet") if users_color >= 380 and users_color < 450 else None
+    print("Blue") if users_color >= 450 and users_color < 495 else None
+    print("Green") if users_color >= 495 and users_color < 570 else None
+    print("Yellow") if users_color >= 570 and users_color < 590 else None
+    print("Orange") if users_color >= 590 and users_color < 620 else None
+    print("Red") if users_color >= 620 and users_color <= 750 else None
+
+def task56():
+    category = {
+        "Radiowaves": (0, 3 * 10**9),
+        "Microwaves": (3 * 10**9, 3 * 10**12),
+        "Infrared light": (3 * 10**12, 4.3 * 10**14),
+        "Visible spectrum": (4.3 * 10**14, 7.5 * 10**14),
+        "Ultraviolet": (7.5 * 10**14, 3 * 10**17),
+        "X-ray": (3 * 10**17, 3 * 10**19),
+        "Gamma spectrum": (3 * 10**19, float("inf")),
+    }
+    users_value = float(input("Enter a value of wavelength (Hz): "))
+
+    for category_name, (start, end) in category.items():
+        if start <= users_value < end:
+            print(f"{category_name}")
+            return
+    print(f"incorrect value {users_value}, which out of the range [0, +inf]")
+
+def task57():
+    users_min = int(input("Enter amount of minutes: "))
+    users_msgs = int(input("Enter amount of messages: "))
+    tax_callcentre = 0.44
+    base_plan = 15
+    users_info = (users_min, users_msgs)
+    rate = (50, 50)
+
+    if users_info == rate:
+        base_plan_and_taxToCallcentre = base_plan + tax_callcentre
+        final_summary = base_plan_and_taxToCallcentre + (base_plan_and_taxToCallcentre / 20)
+        print(f"\n{base_plan:.2f} $")
+        print(f"{base_plan_and_taxToCallcentre:.2f} $")
+        print(f"{final_summary:.2f} $")
+
+    else:
+        if users_min > 50:
+            calc_min = (users_min - 50) * 0.25
+            base_plan_and_addMIN = base_plan + calc_min
+            base_plan_and_addMIN_and_tTC = base_plan_and_addMIN + tax_callcentre
+            final_summary_min = base_plan_and_addMIN_and_tTC + (base_plan_and_addMIN_and_tTC / 20)
+            print(f"\n{base_plan:.2f} $")
+            print(f"{base_plan_and_addMIN:.2f} $")
+            print(f"{base_plan_and_addMIN_and_tTC:.2f} $")
+            print(f"{final_summary_min:.2f} $")
+
+        elif users_msgs > 50:
+            calc_msgs = (users_min - 50) * 0.15
+            base_plan_and_addMSGS = base_plan + calc_msgs
+            base_plan_and_addMSGS_and_tTC = base_plan_and_addMSGS + tax_callcentre
+            final_summary_msgs = base_plan_and_addMSGS_and_tTC + (base_plan_and_addMSGS_and_tTC / 20)
+            print(f"\n{base_plan:.2f} $")
+            print(f"{base_plan_and_addMSGS:.2f} $")
+            print(f"{base_plan_and_addMSGS_and_tTC:.2f} $")
+            print(f"{final_summary_msgs:.2f} $")
 
 def main():
     while True:
-        choice = input("\nEnter a number of task (at the moment range is in [1 - 53])\
+        choice = input("\nEnter a number of task (at the moment range is in [1 - 57])\
         \nor enter [stop] if you wanna stop program : ")
         tasks = {
     '1': task1, '2': task2, '3': task3, '4': task4, '5': task5,
@@ -801,7 +884,8 @@ def main():
     '36': task36, '37': task37, '38': task38, '39': task39, '40': task40,
     '41': task41, '42': task42, '43': task43, '44': task44, '45': task45,
     '46': task46, '47': task47, '48': task48, '49': task49, '50': task50,
-    '51': task51, '52': task52, '53': task53,
+    '51': task51, '52': task52, '53': task53, '54': task54, '55': task55,
+    '56': task56, '57': task57,
 
 }
         if choice == "stop":
