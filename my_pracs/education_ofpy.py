@@ -849,7 +849,7 @@ def task57():
         print(f"{final_summary:.2f} $")
 
     else:
-        if users_min > 50:
+        if users_min > rate[0]:
             calc_min = (users_min - 50) * 0.25
             base_plan_and_addMIN = base_plan + calc_min
             base_plan_and_addMIN_and_tTC = base_plan_and_addMIN + tax_callcentre
@@ -859,7 +859,7 @@ def task57():
             print(f"{base_plan_and_addMIN_and_tTC:.2f} $")
             print(f"{final_summary_min:.2f} $")
 
-        elif users_msgs > 50:
+        elif users_msgs > rate[1]:
             calc_msgs = (users_min - 50) * 0.15
             base_plan_and_addMSGS = base_plan + calc_msgs
             base_plan_and_addMSGS_and_tTC = base_plan_and_addMSGS + tax_callcentre
@@ -869,9 +869,66 @@ def task57():
             print(f"{base_plan_and_addMSGS_and_tTC:.2f} $")
             print(f"{final_summary_msgs:.2f} $")
 
+def task58():
+    users_year = int(input("Enter a year: "))
+    if users_year % 400 == 0:
+        print("Year is leap")
+    elif users_year % 100 == 0:
+        print("Year isn't leap")
+    elif users_year % 4 == 0:
+        print("Year is leap")
+    else:
+        print("Year isn't leap")
+
+def task59():
+
+    user_date = input("Enter a date (e.g., 31 December 2023): ")
+    user_date_list = user_date.split(" ")
+
+    user_day = int(user_date_list[0])
+    user_month = user_date_list[1].capitalize()
+    user_year = int(user_date_list[2])
+
+    leap = (user_year % 400 == 0) or (user_year % 4 == 0 and user_year % 100 != 0)
+
+    if user_month in ["January", "March", "May", "July", "August", "October", "December"]:
+        days_in_month = 31
+    elif user_month in ["April", "June", "September", "November"]:
+        days_in_month = 30
+    elif user_month == "February":
+        days_in_month = 29 if leap else 28
+    else:
+        print("Invalid month")
+        exit()
+
+    months = ["January", "February", "March", "April", "May", "June", 
+            "July", "August", "September", "October", "November", "December"]
+
+    if user_day < days_in_month:
+        user_day += 1
+    else:
+        user_day = 1
+        if user_month == "December":
+            user_month = "January"
+            user_year += 1
+        else:
+            user_month = months[months.index(user_month) + 1]
+
+    print(user_day, user_month, user_year)
+
+
+def task60():
+    pass
+
+def task61():
+    pass
+
+def task62():
+    pass
+
 def main():
     while True:
-        choice = input("\nEnter a number of task (at the moment range is in [1 - 57])\
+        choice = input("\nEnter a number of task (at the moment range is in [1 - 59])\
         \nor enter [stop] if you wanna stop program : ")
         tasks = {
     '1': task1, '2': task2, '3': task3, '4': task4, '5': task5,
@@ -885,7 +942,7 @@ def main():
     '41': task41, '42': task42, '43': task43, '44': task44, '45': task45,
     '46': task46, '47': task47, '48': task48, '49': task49, '50': task50,
     '51': task51, '52': task52, '53': task53, '54': task54, '55': task55,
-    '56': task56, '57': task57,
+    '56': task56, '57': task57, '58': task58, '59': task59,
 
 }
         if choice == "stop":
@@ -895,6 +952,6 @@ def main():
             print("\n")
             tasks[choice]()
         else:
-            print(f"Your input |{choice}| isn't correct, please enter a number in range [1 - 34]\n")
+            print(f"Your input |{choice}| isn't correct, please enter a number in range [1 - 59]\n")
 if __name__ == "__main__":
     main()
