@@ -918,7 +918,17 @@ def task59():
 
 
 def task60():
-    pass
+    import math
+    year = int(input("Enter a year: "))
+
+    day_of_the_week = (year + math.floor((year - 1)/4) - math.floor((year - 1)/100)+ math.floor((year - 1)/400))%7
+    days = {
+        0: "Saturday", 1: "Sunday",
+        2: "Monday", 3: "Tuesday",
+        4: "Wednesday", 5: "Thursday",
+        6: "Friday"
+    }
+    print(f"1 January is {days[day_of_the_week] if day_of_the_week in days else None}")
 
 def task61():
     pass
@@ -942,7 +952,7 @@ def main():
     '41': task41, '42': task42, '43': task43, '44': task44, '45': task45,
     '46': task46, '47': task47, '48': task48, '49': task49, '50': task50,
     '51': task51, '52': task52, '53': task53, '54': task54, '55': task55,
-    '56': task56, '57': task57, '58': task58, '59': task59,
+    '56': task56, '57': task57, '58': task58, '59': task59, '60': task60
 
 }
         if choice == "stop":
