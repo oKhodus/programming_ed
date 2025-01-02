@@ -934,11 +934,23 @@ def task61():
     pass
 
 def task62():
-    pass
+    import random
+    # 18 red, 18 black, 2 green
+    red = [1, 3, 5, 7, 9, 12, 14, 16, 18, 19, 21, 23, 25, 27, 30, 32, 34, 36]
+    first_half = range(1, 19)
+    second_half = range(19, 37)
+    user_bet = random.randrange(0, 37)
+    print(f"Выпавший номер: {user_bet}...") 
+    print(f"Выигравшая ставка: {user_bet}") if user_bet in range(1, 37, 2) else None
+    print(f"Выигравшая ставка: {user_bet}") if user_bet in range(0, 37, 2) else None
+    print(f"Выигравшая ставка: красное") if user_bet in red else print(f"Выигравшая ставка: черное")
+    print(f"Выигравшая ставка: нечетное") if user_bet % 2 != 0 else print(f"Выигравшая ставка: четное")
+    print(f"Выигравшая ставка: от 1 до 18") if user_bet in first_half else print(f"Выигравшая ставка: от 19 до 36")
+    print(f"Выигравшая ставка: {user_bet}") if user_bet == 0 or user_bet == 00 else None
 
 def main():
     while True:
-        choice = input("\nEnter a number of task (at the moment range is in [1 - 59])\
+        choice = input("\nEnter a number of task (at the moment range is in [1 - 62])\
         \nor enter [stop] if you wanna stop program : ")
         tasks = {
     '1': task1, '2': task2, '3': task3, '4': task4, '5': task5,
@@ -952,7 +964,8 @@ def main():
     '41': task41, '42': task42, '43': task43, '44': task44, '45': task45,
     '46': task46, '47': task47, '48': task48, '49': task49, '50': task50,
     '51': task51, '52': task52, '53': task53, '54': task54, '55': task55,
-    '56': task56, '57': task57, '58': task58, '59': task59, '60': task60
+    '56': task56, '57': task57, '58': task58, '59': task59, '60': task60,
+    '61': task61, '62': task62
 
 }
         if choice == "stop":
@@ -962,6 +975,6 @@ def main():
             print("\n")
             tasks[choice]()
         else:
-            print(f"Your input |{choice}| isn't correct, please enter a number in range [1 - 59]\n")
+            print(f"Your input |{choice}| isn't correct, please enter a number in range [1 - 62]\n")
 if __name__ == "__main__":
     main()
