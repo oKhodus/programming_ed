@@ -157,3 +157,194 @@ if b > a:
 if d > c:
   c, d = d, c 
 print("ДА" if a - c >= 2 and b - d >= 2 else "НЕТ")
+
+inp = list(map(str, input()))
+part1 = list(map(int, inp[:3]))
+part2 = list(map(int, inp[3:]))
+out1 = 0
+out2 = 0
+for elem in part1:
+    out1 += elem
+for elem2 in part2:
+    out2 += elem2
+print("ДА" if out1 == out2 else "НЕТ")
+
+inp = float(input())
+print("green" if round(inp) % 3 == 0 else "red")
+
+m = '''1. Введение в Python
+2. Строки и списки
+3. Условные операторы
+4. Циклы
+5. Словари, кортежи и множества
+6. Выход'''
+
+user_num = input()
+lines = m.splitlines()
+
+if user_num in lines[0]:
+    main_str = lines[0]
+elif user_num in lines[1]:
+    main_str = lines[1]
+elif user_num in lines[2]:
+    main_str = lines[2]
+elif user_num in lines[3]:
+    main_str = lines[3]
+elif user_num in lines[4]:
+    main_str = lines[4]
+else:
+    main_str = lines[5]
+
+print(main_str)
+
+a, b, c = map(int, input().split())
+
+if a <= b and a <= c:
+    less = a
+elif b <= a and b <= c:
+    less = b
+else:
+    less = c
+
+
+print(less)
+
+day = int(input())
+
+days = ["понедельник", "вторник", "среда", "четверг", "пятница", "суббота", "воскресенье"]
+
+out = days[day-1] if days[day-1] in days else "Incorrecto"
+
+print(out)
+
+month = int(input())
+months = range(1, 13)
+
+days_in_month = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31]
+
+print(days_in_month[month-1]) if month in months else print("Incorrecto")
+
+
+month, day = map(int, input().split())
+days_in_month = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31]
+
+def ytd(month, day):
+    if day > 1:
+        yesterday = f"{month:02}.{day-1:02}"
+    else:
+        if month == 1:
+            yesterday = f"12.{days_in_month[month+10]:02}"
+        else:
+            previous_month = month - 1
+            yesterday = f"{previous_month:02}.{days_in_month[previous_month-1]:02}"
+    return yesterday
+
+def trw(month, day):
+    if day < days_in_month[month-1]:
+        tomorrow = f"{month:02}.{day+1:02}"
+    else:
+        if month == 12:
+            tomorrow = f"01.01"
+        else:
+            next_month = month + 1
+            tomorrow = f"{next_month:02}.01"
+    return tomorrow
+
+print(ytd(month, day), trw(month, day))
+
+
+k = int(input())
+days = ["понедельник", "вторник", "среда", "четверг", "пятница", "суббота", "воскресенье"]
+if 1 <= k <= 365:
+    a = k % 7
+    print(days[a-1])
+else:
+    print('incorrect')
+a = input().lower()
+print("палиндром" if a == a[::-1] else "не палиндром")
+
+sec = range(0, 60)
+user_sec = int(input())
+user_sec = (0 if user_sec == 59 else user_sec + 1) if user_sec > -1 else None
+print(user_sec)
+
+m = ['до', 'ре', 'ми', 'фа', 'соль', 'ля', 'си']
+a, b, c = map(int, input().split())
+
+out = []
+
+out.append("#" + m[a-1]) if m[a-1] == "до" or m[a-1] == "фа" else out.append(m[a-1])
+out.append("#" + m[b-1]) if m[b-1] == "до" or m[b-1] == "фа" else out.append(m[b-1])
+out.append("#" + m[c-1]) if m[c-1] == "до" or m[c-1] == "фа" else out.append(m[c-1])
+
+print(*out)
+
+x = float(input())
+out = []
+summ = 0
+for elem in range(2, 11):
+    summ = elem * x
+    out.append(f"{summ:.1f}")
+print(*out)
+
+n = int(input())
+summ = 1
+s = 1
+while summ < n:
+    summ += 1
+    s += 1/summ
+print(f"{s:.3f}")
+
+n = int(input())
+summ = 0
+while n != 0:
+    summ += n
+    n = int(input())
+print(summ)
+
+inp = input().split("-")
+out = ''
+for elem in inp:
+    if elem != '' and elem != inp[-1]:
+        out += elem
+        out += "-"
+    else:
+        out += elem
+print(out)
+
+n = int(input())
+summ = 1
+for elem in str(n):
+    summ *= int(elem)
+print(summ)
+
+
+n = int(input())
+first = 1
+second = 1
+print(first, second, end=' ')
+
+for step in range(0, n-2):
+    summ = first + second
+    first = second
+    second = summ
+    step+=1
+    print(second, end=' ')
+
+amoeba = 1
+n = int(input())
+while n > 0:
+    n -= 3
+    amoeba *= 2
+    if n < 3:
+        break
+print(amoeba)
+
+a, b = (int, input().split())
+for elem in range(2, 10):
+    if elem % 2 != 0:
+        print(elem, end=" ")
+
+for elem in range(100, 1000):
+    if elem % 47 == 43 and elem % 3 == 0:
+        print(elem, end=" ")
