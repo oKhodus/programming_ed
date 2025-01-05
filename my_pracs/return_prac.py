@@ -197,7 +197,7 @@ def done():
         main_str = lines[5]
 
     print(main_str)
-
+# ////////
     a, b, c = map(int, input().split())
 
     if a <= b and a <= c:
@@ -207,9 +207,8 @@ def done():
     else:
         less = c
 
-
     print(less)
-
+# ////////
     day = int(input())
 
     days = ["понедельник", "вторник", "среда", "четверг", "пятница", "суббота", "воскресенье"]
@@ -217,7 +216,7 @@ def done():
     out = days[day-1] if days[day-1] in days else "Incorrecto"
 
     print(out)
-
+# ////////
     month = int(input())
     months = range(1, 13)
 
@@ -252,8 +251,7 @@ def done():
         return tomorrow
 
     print(ytd(month, day), trw(month, day))
-
-
+# ////////
     k = int(input())
     days = ["понедельник", "вторник", "среда", "четверг", "пятница", "суббота", "воскресенье"]
     if 1 <= k <= 365:
@@ -261,14 +259,15 @@ def done():
         print(days[a-1])
     else:
         print('incorrect')
+# ////////
     a = input().lower()
     print("палиндром" if a == a[::-1] else "не палиндром")
-
+# ////////
     sec = range(0, 60)
     user_sec = int(input())
     user_sec = (0 if user_sec == 59 else user_sec + 1) if user_sec > -1 else None
     print(user_sec)
-
+# ////////
     m = ['до', 'ре', 'ми', 'фа', 'соль', 'ля', 'си']
     a, b, c = map(int, input().split())
 
@@ -279,7 +278,7 @@ def done():
     out.append("#" + m[c-1]) if m[c-1] == "до" or m[c-1] == "фа" else out.append(m[c-1])
 
     print(*out)
-
+# ////////
     x = float(input())
     out = []
     summ = 0
@@ -287,7 +286,7 @@ def done():
         summ = elem * x
         out.append(f"{summ:.1f}")
     print(*out)
-
+# ////////
     n = int(input())
     summ = 1
     s = 1
@@ -295,14 +294,14 @@ def done():
         summ += 1
         s += 1/summ
     print(f"{s:.3f}")
-
+# ////////
     n = int(input())
     summ = 0
     while n != 0:
         summ += n
         n = int(input())
     print(summ)
-
+# ////////
     inp = input().split("-")
     out = ''
     for elem in inp:
@@ -312,19 +311,19 @@ def done():
         else:
             out += elem
     print(out)
-
+# ////////
     n = int(input())
     summ = 1
     for elem in str(n):
         summ *= int(elem)
     print(summ)
 
-
+# ////////
     n = int(input())
     first = 1
     second = 1
     print(first, second, end=' ')
-
+# ////////
     for step in range(0, n-2):
         summ = first + second
         first = second
@@ -340,7 +339,7 @@ def done():
         if n < 3:
             break
     print(amoeba)
-
+# ////////
     a, b = (int, input().split())
     for elem in range(2, 10):
         if elem % 2 != 0:
@@ -418,7 +417,6 @@ def done():
         day += 1
         print(distance)
     print(day)
-
 # ////////
     import sys 
     lst_in = list(map(str.strip, sys.stdin.readlines()))
@@ -427,4 +425,56 @@ def done():
         if " " not in elem:
             res.append(elem)
     print(*res, end=" ")
+# ////////
+    for n in range(1, 20, 3):
+        print(n, end=" ")
+    
+    lst = list(map(int, input().split()))
+    summ = 0
+    for n in lst:
+        if n % 2 != 0:
+            summ += n
+    print(summ)
+# ////////
+    inp = list(map(str, input().split()))
+    for word in inp:
+        print(len(word), end=" ")
+# ////////
+    n = int(input())
+    for num in range(1, n+1):
+        if n % num == 0:
+            print(num)
+# ////////
+    n = int(input())
+    lst = []
+    for num in range(1, n+1):
+
+        out = "ДА" if n % num == 0 else "НЕТ"
+        lst.append(out)
+        
+    print("ДА" if lst.count("ДА") == 2 else "НЕТ")
+# ////////
+# алгоритм, который проверяет правила игры в города
+    lst = list(map(str, input().split()))
+    inc = ['ь', 'ъ', 'ы']
+    ends = []
+    out = []
+    for city in lst:
+        if city[-1:] in inc:
+            ends.append(city[-2:-1].upper())
+        else:
+            ends.append(city[-1:].upper())
+        if city[0] in ends:
+            out.append("ДА")
+        else:
+            out.append("НЕТ")
+
+    print("ДА" if out.count("ДА") >= len(lst) - 1 else "НЕТ")
+# ////////
+    n = int(input())
+    out = []
+    for integer in range(1, n):
+        if integer % 3 == 0 or integer % 5 == 0:
+            out.append(integer)
+    print(sum(out))
 # ////////
