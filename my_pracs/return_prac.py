@@ -478,3 +478,69 @@ def done():
             out.append(integer)
     print(sum(out))
 # ////////
+    inp = str(input())
+    out = []
+    for index, char in enumerate(inp):
+        if char == "р" and index + 1 < len(inp) and\
+        inp[index + 1] == "а":
+            out.append(index)
+        else:
+            continue
+
+    print(-1) if out == [] else print(*out)
+# ////////
+    inp = list(map(int, input().split()))
+
+    for index, integer in enumerate(inp):
+        if index % 2 == 0:
+            print(integer, end=" ")
+# ////////
+    inp = str(input())
+    for index, char in enumerate(inp):
+        if char == 'а':
+            print(index, end=" ")
+# ////////
+    inp = list(map(int, input().split()))
+    out = []
+    for index, integer in enumerate(inp):
+        if index % 2 != 0:
+            out.append(integer)
+            out.append(integer - 1)
+    print(*out)
+# ////////
+    inp = list(map(str, input().split()))
+    out = []
+    for index, word in enumerate(inp):
+        out.append(len(word))
+    print(f"index: {index}, len: {max(out)}, word: {word}")
+# ////////
+    inp = list(map(int, input().split()))
+    out = []
+    for index, integer in enumerate(inp):
+        out.append(integer * index)
+    print(*out)
+# ////////
+    inp = list(map(str, input().split()))
+    out = []
+    for index, elem in enumerate(inp):
+        if index % 3 == 0:
+            out.append(elem)
+    print(*out)
+# ////////
+    inp = str(input().split())
+    base = []
+    for elem in inp:
+        if elem.isnumeric():
+            base.append("x")
+    if len(base) == 11 and "+" in inp and len(inp) == 20 and inp[3] == "7":
+        print("ДА")
+    else:
+        print("НЕТ")
+# ////////
+
+
+inp = str(input().strip())
+exp = ["-", "+", "*", "/"]
+
+for elem in inp:
+    pass
