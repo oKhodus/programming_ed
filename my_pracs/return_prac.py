@@ -539,8 +539,76 @@ def done():
 # ////////
 
 
-inp = str(input().strip())
-exp = ["-", "+", "*", "/"]
-
-for elem in inp:
-    pass
+        def main():
+            expr = input().replace("+", " ").split(" ")
+            minused_lst = []
+            plussed = []
+            for index, elem in enumerate(expr):
+                if elem == "-":
+                    minused = expr[index+1].replace(expr[index+1], "-" + expr[index+1])
+                    minused_lst.append(int(minused))
+                    expr.remove(expr[index+1])
+                elif elem.isdigit():
+                    plussed.append(int(elem))
+                elif len(elem) > 2:
+                    if "-" in elem:
+                        minused_exp = elem.split("-")
+                        minused_lst.append(int("-" + minused_exp[1]))
+                        plussed.append(int(minused_exp[0]))
+                    else:
+                        plussed_exp = elem.split("+")
+                        plussed.append(int(plussed_exp[0]))
+                        plussed.append(int(plussed_exp[1]))
+                else:
+                    continue
+            print(sum(plussed + minused_lst))
+        
+        
+        def main2():
+            lst = list(map(int, input().split()))
+            for index, integer in enumerate(lst):
+                print((integer ** 2), end = " ")
+        
+        def main3():
+            lst = list(map(int, input().split()))
+            for index, integer in enumerate(lst):
+                print(integer, integer, end=" ")
+        
+        def main4():
+            lst = list(map(float, input().split()))
+            a = lst[0]
+            for index, f in enumerate(lst):
+                if f < a:
+                    a = f
+                else:
+                    continue
+            print(a)
+        
+        def main5():
+            lst = list(map(float, input().split()))
+            for i, n in enumerate(lst):
+                if n < 0:
+                    n = -1.0
+                print(n, end=" ")
+        
+        
+        def main6():
+            stdin = input().split(" ")
+            city = iter(stdin)
+            print(next(city))
+            print(next(city))
+        
+        def main7():
+            stdin = iter(input())
+            for elem in stdin:
+                if elem == " ":
+                    break
+                else:
+                    print(elem, end="")
+        
+        def main8():
+            n = int(input())
+            for i in range(1, n+1):
+                for j in range(1, n+1):
+                    print(1, end=" ") if j != n else print(5)
+                
