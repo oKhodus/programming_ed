@@ -633,13 +633,22 @@ def done():
 
         for line in app:
             print(line, end="\n")
-# придумать с решетом Эратосфена
+
     def main():
         n = int(input())
-        for i in range(2, n+1):
-            if i < n:
-                print(i, end=" ")
-            else:
-                continue
 
-    main()
+        for Int in range(2, n):
+            prime = True
+            for sub_Int in range(2, Int):
+                if Int % sub_Int == 0:
+                    prime = False
+            if prime == True:
+                print(Int, end=" ")
+                
+import sys
+
+# считывание списка из входного потока
+s = sys.stdin.readlines()
+lst_in = [list(map(int, x.strip().split())) for x in s]
+
+# здесь продолжайте программу (используйте список lst_in)
