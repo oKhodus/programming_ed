@@ -1,6 +1,6 @@
-
 import requests
 import sys
+
 
 def btc():
     try:
@@ -11,11 +11,10 @@ def btc():
         usd = Currency["USD"]
         usd_rate = float(usd["rate"].replace(",", ""))
 
-                                                        # for usd_rate in usd["rate"]:
-                                                        #     print(usd_rate, end="")
+        # for usd_rate in usd["rate"]:
+        #     print(usd_rate, end="")
         amount = float(sys.argv[1])
 
-        
         if sys.argv[1] in sys.argv:
             if amount is not str:
                 calc = amount * usd_rate
@@ -35,4 +34,6 @@ def btc():
 
     except requests.RequestException:
         pass
+
+
 btc()
