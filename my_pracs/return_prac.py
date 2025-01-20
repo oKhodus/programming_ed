@@ -645,10 +645,102 @@ def done():
             if prime == True:
                 print(Int, end=" ")
                 
-import sys
+    import sys
 
-# считывание списка из входного потока
-s = sys.stdin.readlines()
-lst_in = [list(map(int, x.strip().split())) for x in s]
+    # считывание списка из входного потока
+    s = sys.stdin.readlines()
+    lst_in = [list(map(int, x.strip().split())) for x in s]
 
-# здесь продолжайте программу (используйте список lst_in)
+    # здесь продолжайте программу (используйте список lst_in)
+    check_row = []
+    n = 0
+    index_i = []
+    out = []
+    for i in lst_in:
+        # print(i)
+        if sum(i) <= 1:
+            check_row.append(1)
+            n += 1
+        else:
+            check_row.append(0)
+            n += 1
+        for index, elem in enumerate(i):
+            if elem == 1:
+                index_i.append(index)
+
+    print(index_i, check_row)
+    inc = [1, -1]
+    for index, elem in enumerate(check_row):
+        if elem == 0:
+            try:
+                if (index_i[index] - index_i[index-1]) in inc or index_i[index+1] == index_i[index-1] or (index_i[index] - index_i[index+1]) in inc:
+                    out.append("НЕТ")
+
+                else:
+                    out.append("ДА")
+                    
+            except IndexError:
+                out.append("error")
+
+    print(out)
+
+    # print("ДА" if sum(check_row) >= 1 else "НЕТ")
+    # or (index_i[index] - index_i[index+1]) == 1
+
+
+    def tuples():
+        numbers = (4, 7, 1, 9, 3)
+        print(sum(numbers))
+
+    tuples()
+
+
+    def tuples2():
+        values = (15, 8, 22, 1, 34, 10)
+        print(f"Max: {max(values)}\nMin: {min(values)}")
+
+    tuples2()
+
+    def tuples3():
+        tuple1 = (1, 2, 3)
+        tuple2 = (4, 5, 6)
+
+        print(tuple1 + tuple2)
+
+    tuples3()
+
+    def tuples4():
+        fruits = ('apple', 'banana', 'cherry', 'orange')
+        print("Yes we have it" if "banana" in fruits else "No we don't have it")
+    tuples4()
+
+
+    def tuples5():
+        numbers = (1, 2, 3, 2, 4, 2, 5)
+        print(numbers.count(2))
+    tuples5()
+
+def tuples6():
+    nums = (10, 20, 30, 40)
+    nn = list(nums)
+    nn[1] = 25
+    print(tuple(nn))
+tuples6()
+
+def tuples7():
+    colors = ('red', 'green', 'blue', 'yellow')
+    cols = list(colors)
+    cols[0] = colors[-1]
+    cols[-1] = colors[0]
+    print(tuple(cols))
+tuples7()
+
+def tuples8():
+    words = ('hello', 'world', 'python')
+    for word in words:
+        if word == "world":
+            for char in word:
+                print(char, end="")
+                if char == "r":
+                    break
+tuples8()
