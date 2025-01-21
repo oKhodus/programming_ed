@@ -833,3 +833,109 @@ def done():
             d.update({k: v})
         print(d)
     dict8()
+
+# built-in functions
+    def task1():
+        a = [10, 5, 8, 3, 1]
+        print(f"Max: {max(a)}, Min: {min(a)}")
+    task1()
+
+    def task2():
+        print("hello world".upper())
+    task2()
+
+    def task3():
+        print(len(["apple", "banana", "cherry"]))
+    task3()
+
+    def task4(n):
+        print(f"Square: {pow(n, 2)}")
+    task4(int(input("Enter a number: ")))
+
+    def task5(n):
+        print("Yes" if n % 2 == 0 else "No")
+    task5(int(input("Enter a number: ")))
+
+    def task6(seq):
+        print(f"Summary is: {sum(seq)}")
+    task6(map(int, input("Enter a number: ").split()))
+
+    def task7(n):
+        x = lambda elem: elem * 2
+        print(f"Amount is: {x(n)}")
+    task7(int(input("Enter a number: ")))
+
+    def task8():
+        seq = [1, 2, 3, 4]
+        out = []
+        x = lambda elem: elem * 2
+        for elem in seq:
+            out.append(x(elem))
+        print(out)
+    task8()
+
+    def task9():
+        seq = [1, 2, 3, 4, 5, 6]
+        x = lambda elem: elem % 2 == 0
+        for elem in seq:
+            if x(elem):
+                continue
+            else:
+                seq.remove(elem)
+        print(seq)
+    task9()
+
+    def task10(l):
+        print(l)
+    task10(task9())
+
+    # lambda
+    def lambda1():
+        summ = lambda a, b: a + b
+        print(f"Summary is: {summ(int(input("a: ")), int(input("b: ")))}")
+    lambda1()
+
+    def lambda2():
+        check_even = lambda n: n % 2 == 0
+        print("Yes" if check_even(int(input("n: "))) else "No")
+    lambda2()
+
+    def lambda3():
+        len_str = lambda s: len(s)
+        print(len_str(input()))
+    lambda3()
+
+    def lambda4():
+        square = lambda i: i ** 2
+        print(square(int(input())))
+    lambda4()
+
+    def lambda5(seq):
+        x = lambda n: n % 2 == 0
+        print(list(filter(x, seq)))
+    lambda5([1, 4, 5, 8, 10, 13])
+
+    def lambda6(seq):
+        x = lambda s: sorted(s)
+        print(x(seq))
+    lambda6(['apple', 'banana', 'kiwi', 'cherry'])
+
+    def lambda7(a, n):
+        powed = lambda a, n: a ** n
+        print(powed(a, n))
+    lambda7(int(input()), int(input()))
+
+    def lambda8(su):
+        underscore = lambda s: s.replace(" ", "_")
+        print(underscore(su))
+    lambda8(input())
+
+    def lambda9(seq):
+        mx = lambda ls: max(ls)
+        print(mx(seq))
+    lambda9(map(int, input().split()))
+
+    def lambda10(C):
+        convert = lambda fl: fl * 9/5 + 32
+        print(convert(C))
+    lambda10(float(input("Celsius: ")))
