@@ -720,27 +720,116 @@ def done():
         print(numbers.count(2))
     tuples5()
 
-def tuples6():
-    nums = (10, 20, 30, 40)
-    nn = list(nums)
-    nn[1] = 25
-    print(tuple(nn))
-tuples6()
+    def tuples6():
+        nums = (10, 20, 30, 40)
+        nn = list(nums)
+        nn[1] = 25
+        print(tuple(nn))
+    tuples6()
 
-def tuples7():
-    colors = ('red', 'green', 'blue', 'yellow')
-    cols = list(colors)
-    cols[0] = colors[-1]
-    cols[-1] = colors[0]
-    print(tuple(cols))
-tuples7()
+    def tuples7():
+        colors = ('red', 'green', 'blue', 'yellow')
+        cols = list(colors)
+        cols[0] = colors[-1]
+        cols[-1] = colors[0]
+        print(tuple(cols))
+    tuples7()
 
-def tuples8():
-    words = ('hello', 'world', 'python')
-    for word in words:
-        if word == "world":
-            for char in word:
-                print(char, end="")
-                if char == "r":
-                    break
-tuples8()
+    def tuples8():
+        words = ('hello', 'world', 'python')
+        for word in words:
+            if word == "world":
+                for char in word:
+                    print(char, end="")
+                    if char == "r":
+                        break
+    tuples8()
+
+
+    def dicts1():
+        numbers = [1, 2, 3, 2, 4, 2, 5, 1, 3, 3]
+        d = {}
+        for elem in numbers:
+            d.update({elem: numbers.count(elem)})
+        print(d)
+    dicts1()
+
+    def dict2():
+        dict1 = {'a': 100, 'b': 200}
+        dict2 = {'b': 300, 'c': 400}
+
+        for elem in dict2:
+
+            if elem in dict1:
+                a = dict1[elem] + dict2[elem]
+                
+                dict1.update({elem: a})
+
+            else:
+                a = dict2[elem]
+
+                dict1.update({elem: a})
+
+        print(dict1)
+    dict2()
+
+
+    def dict3():
+        grades = {'Alice': 85, 'Bob': 92, 'Charlie': 78}
+        seq = []
+        
+        for name in grades:
+            seq.append(grades[name])
+            if grades[name] == max(seq):
+                s = name
+        print(s)
+    dict3()
+
+
+    def dict4():
+
+        data = {'name': 'John', 'age': 25, 'city': 'New York'}
+        for elem in data:
+            if elem == "age":
+                print(f"Ключ '{elem}' найден")
+
+    dict4()
+
+    def dict5():
+        original = {'apple': 1, 'banana': 2, 'cherry': 3}
+        d = {}
+        for elem in original:
+            d.update({original[elem]: elem})
+        print(d)
+    dict5()
+
+    def dict6():
+        products = {'apple': 50, 'banana': 30, 'cherry': 75, 'mango': 20}
+        d = {}
+        for elem in products:
+            if products[elem] > 40:
+                d.update({elem: products[elem]})
+                
+        print(d)
+    dict6()
+
+    def dict7():
+        text = "hello world"
+        d = {}
+        for char in text:
+            if char == " ":
+                continue
+            i = text.count(char)
+            d.update({char: i})
+        print(d)
+
+    dict7()
+
+    def dict8():
+        keys = ['name', 'age', 'city']
+        values = ['Alice', 25, 'New York']
+        d = {}
+        for k,v in zip(keys,values):
+            d.update({k: v})
+        print(d)
+    dict8()
