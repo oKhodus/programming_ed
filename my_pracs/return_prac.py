@@ -939,3 +939,57 @@ def done():
         convert = lambda fl: fl * 9/5 + 32
         print(convert(C))
     lambda10(float(input("Celsius: ")))
+
+    # list comprehensions
+
+    def lc1():
+        numbers = [1, 2, 3, 4, 5]
+        print([x**2 for x in numbers])
+    lc1()
+
+    def lc2():
+        numbers = [10, 15, 20, 25, 30, 35, 40]
+        print([x for x in numbers if x % 2 == 0])
+    lc2()
+
+    def lc3():
+        words = ["apple", "banana", "cherry", "kiwi"]
+        print([len(word) for word in words])
+    lc3()
+
+    def lc4():
+        words = ["car", "cat", "dog", "duck", "apple"]
+        print([word for word in words if word.startswith("c")])
+    lc4()
+
+    def lc5():
+        text = "hello world"
+        vowels = ["a", "e", "i", "o", "u"]
+        print([char if char not in vowels else '*' for char in text.lower()])
+    lc5()
+
+    def lc6():
+        numbers = [5, 10, 15, 20, 25, 30, 35]
+        print([elem for index, elem in enumerate(numbers) if index % 2 == 0])
+    lc6()
+
+    def lc7():
+        sentence = "List comprehensions are powerful"
+        print([word for word in sentence.split(" ")[::-1]])
+    lc7()
+
+    def lc8():
+        n = range(1, 51)
+        print([i for i in n if i % 3 == 0 and i % 5 == 0])
+    lc8()
+
+    def lc9():
+        text = "abc123xyz45"
+        print([elem for elem in text if elem.isdigit()])
+    lc9()
+
+    def lc10():
+        list1 = [1, 2, 3]
+        list2 = ['a', 'b', 'c']
+        print([(elem1, elem2) for elem1, elem2 in zip(list1, list2)])
+    lc10()
