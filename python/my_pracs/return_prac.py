@@ -1020,17 +1020,97 @@ def done():
 
     rec2(1234)
 
-lst = []
-def rec3(f):
+    lst = []
+    def rec3(f):
 
-    if len(lst) < f+2:
-        lst.append(f)
-        f = f-1
-        rec3(f)
-    else:
-        i = 1
-        for elem in lst:
-            i *= elem
-        print(i)
+        if len(lst) < f+2:
+            lst.append(f)
+            f = f-1
+            rec3(f)
+        else:
+            i = 1
+            for elem in lst:
+                i *= elem
+            print(i)
 
-rec3(5)
+    rec3(5)
+
+    class Car:
+        def __init__(self, brand, model, year):
+            self.brand = brand
+            self.model = model
+            self.year = year
+
+        def display_info(self):
+            print(f"Auto: {self.brand} {self.model}, Year: {self.year}")
+
+    car = Car("Toyota", "Camry", 2020)
+    car.display_info()
+
+    class BankAcc:
+        def __init__(self, owner_name, balance):
+            self.owner_name = owner_name
+            self.balance = balance
+
+        def deposit(self, amount):
+            self.balance += amount
+
+        def withdraw(self, amount):
+            if self.balance >= amount:
+                self.balance -= amount
+            else:
+                print("oioi, your balance is less than withdraw - please make a deposit")
+
+        def get_balance(self):
+            print(f"Your balance is: {self.balance}")
+
+    acc = BankAcc(input("Please enter your fullname: "),\
+    int(input("Enter your current balance: ")))
+
+    acc.deposit(500)
+    acc.withdraw(200)
+
+    acc.get_balance()
+
+    class Rectangle:
+        def __init__(self, w, h):
+            self.w = w
+            self.h = h
+        
+        def area(self):
+            return self.w * self.h
+
+
+        def perimetr(self):
+            return (self.w + self.h) * 2
+
+    rect = Rectangle(5, 10)
+    print(f"Area: {rect.area()}\nP: {rect.perimetr()}")
+
+
+    class Product:
+        def __init__(self, name, price, quantity):
+            self.name = name
+            self.price = price
+            self.quantity = quantity
+
+        def total_cost(self):
+            return (self.price * self.quantity)
+        
+
+    p1 = Product("Laptop", 1000, 3)
+    p2 = Product("Phone", 500, 2)
+    print(p1.total_cost() + p2.total_cost())
+
+    class Book:
+        def __init__(self, title, author, year):
+            self.title = title
+            self.author = author
+            self.year = year
+
+        def book_info(self):
+            print(f"Book Title: {self.title}\n\
+    Book Author: {self.author}\nYear: {self.year}")
+
+    book = Book("1984", "George Orwell", 1949)
+    book.book_info()
