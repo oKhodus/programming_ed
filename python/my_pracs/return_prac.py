@@ -993,3 +993,44 @@ def done():
         list2 = ['a', 'b', 'c']
         print([(elem1, elem2) for elem1, elem2 in zip(list1, list2)])
     lc10()
+
+# recursion
+
+    def rec1(n, i):
+        if n > 121:
+            rec1(int(input("oioi n is bigger 121: ")), 0)
+
+        if n <= 121:
+            i += 1
+            n += 1
+            print(f"Iteration {i}: {n}",end="\n")
+            rec1(n, i) if n != 121 else print("\nYEEAH n is 121")
+                    
+    rec1(int(input("Enter a value of n: ")), 0)
+
+    def rec2(n):
+        if isinstance(n, str):
+            i = 0
+            for elem in n:
+                i += int(elem)
+            print(i)
+        else:
+            s = str(n)
+            rec2(s)
+
+    rec2(1234)
+
+lst = []
+def rec3(f):
+
+    if len(lst) < f+2:
+        lst.append(f)
+        f = f-1
+        rec3(f)
+    else:
+        i = 1
+        for elem in lst:
+            i *= elem
+        print(i)
+
+rec3(5)
