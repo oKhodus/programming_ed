@@ -1114,3 +1114,131 @@ def done():
 
     book = Book("1984", "George Orwell", 1949)
     book.book_info()
+
+
+    def re_():
+        import re
+        text = "Мои контакты: alex@example.com, test.email@domain.net"
+
+        a = re.findall(r'[\w\.]+@[\w\.]+', text)
+        print(a)
+
+    re_()
+
+    def re_new():
+        import re
+        phone = "+123-456-7890"
+        # phone = input()
+        check = re.findall(r"\+\d{3}-\d{3}-\d{4}", phone)
+        # print(check)
+        print(True if check else False)
+    re_new()
+
+    def re_new2():
+        import re
+        text = "Сегодня 12/05/2023, а завтра будет 13/05/2023."
+        dates = re.findall(r"\d{2}/\d{2}/\d{4}", text)
+        print(dates)
+    re_new2()
+
+    def re_new3():
+        import re
+        text = "Hello world, regular expressions are fun!"
+        print(re.sub(" ", "_", text))
+    # Ожидаемый результат: "Hello_world,_regular_expressions_are_fun!"
+    re_new3()
+
+    def re_new4():
+        import re
+        text = "apple,orange.banana grape"
+        new_text = re.findall(r"\w+", text)
+        print(new_text)
+        # Ожидаемый результат: ['apple', 'orange', 'banana', 'grape']
+    re_new4()
+
+    def re_new5():
+        import re
+        text = "Alice went to Wonderland. The White Rabbit was there."
+        new_text = re.findall(r"[A-Z][\w]+", text)
+        print(new_text)
+    re_new5()
+
+    def re_new6():
+        import re
+        text = "Order #1234, Price: $45.67"
+        new_text = re.findall(r"[\d]", text)
+        print("".join(new_text))
+    re_new6()
+
+    def re_new7():
+        import re
+        s = "Дата рождения: 15/07/1999"
+        match = re.search(r"(\d{2})/(\d{2})/(\d{4})", s)
+
+        if match:
+            day = match.group(1)
+            month = match.group(2)
+            year = match.group(3)
+
+        months = {
+            "01": "January", "02": "February",
+            "03": "March", "04": "April",
+            "05": "May", "06": "June",
+            "07": "July", "08": "August",
+            "09": "September", "10": "October",
+            "11": "November", "12": "December"
+        }
+
+        print(f"Day: {day}, \
+    Month: {months[month]}, \
+    Year: {year}")
+
+    re_new7()
+
+    def re_new8():
+        import re
+        text = "The quick Brown fox Jumped over the Lazy Dog."
+        uppers = re.findall(r"[A-Z][a-z]+", text)
+        print(uppers)
+    re_new8()
+
+    def re_new9():
+        import re
+        text = "Контакты: +123-456-7890, +987-654-3210, +555-123-4567"
+        phones = re.findall(r"\+\d{3}-\d{3}-\d{4}", text)
+        print(phones)
+
+    re_new9()
+
+    def re_new10():
+        import re
+        text = "Emails: alice@example.com, bob@domain.net, charlie@company.org"
+        emails = re.findall(r"\w+@\w+\.\w+", text)
+        print(emails)
+    re_new10()
+
+    def re_new11():
+        import re
+        text = "https://example.com"
+        https = "https://"
+        dotcomS = ".com"
+        link = re.search(r"(\w+://)\w+(\.\w+$)", text)
+        protocol = link.group(1)
+        dotcom = link.group(2)
+        print(True if protocol == https and dotcom == dotcomS else False)
+    re_new11()
+
+    def re_new12():
+        import re
+        s = "<h1>Welcome to my website</h1><h1>Enjoy your stay</h1>"
+        text = re.findall(r"<h1>(.*?)</h1>", s)
+        print(text)
+    re_new12()
+
+    def re_new13():
+        import re
+        s = "     "
+        check = re.search(".+", s)
+        # print(check)
+        print(True if check != '' else False)
+    re_new13()
