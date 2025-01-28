@@ -1242,3 +1242,119 @@ def done():
         # print(check)
         print(True if check != '' else False)
     re_new13()
+
+
+    class Animal:
+        def __init__(self, name, sound):
+            self.name = name
+            self.sound = sound
+
+        def make_sound(self):
+            print(f"{self.name} make sound {self.sound}")
+        
+    class Dog(Animal):
+        def __init__(self, name, sound):
+            super().__init__(name, sound)
+
+    class Cat(Animal):
+        def __init__(self, name, sound):
+            super().__init__(name, sound)
+
+    dog = Dog("Laika", "Woof")
+    cat = Cat("Honey", "Meow")
+
+    dog.make_sound()
+    cat.make_sound()
+
+    from math import pi, sqrt
+
+    class Shape:
+        def __init__(self, w, h):
+            self.w = w
+            self.h = h
+
+        def area(self, out):
+            print(f"{out:,.0f} m^2")
+
+    class Rectangle(Shape):
+        def __init__(self, w, h):
+            super().__init__(w, h)
+
+        def area(self):
+            out = self.w * self.h
+            return super().area(out)
+
+    class Circle(Shape):
+        def __init__(self, w, h):
+            super().__init__(w, h)
+
+        def area(self):
+            s = self.w * self.h
+            r = sqrt(s / pi)
+            out = pi * pow(r, 2)
+            return super().area(out)
+
+
+    rectangle = Rectangle(100, 100)
+    circle = Circle(50, 50)
+
+    rectangle.area()
+    circle.area()
+
+
+    class Vehicle:
+        def __init__(self, brand, speed, add_attr, s):
+            self.brand = brand
+            self.speed = speed
+            self.add_attr = add_attr
+            self.s = s
+
+        def describe(self):
+            return f"Brand: {self.brand},\nSpeed: {self.speed},\n" + f"{self.s} {self.add_attr}\n"
+
+    class Car(Vehicle):
+        def __init__(self, brand, speed, number_of_doors, s):
+            s = "Number of doors:"
+            number_of_doors = 4
+            super().__init__(brand, speed, number_of_doors, s)
+
+    class Bike(Vehicle):
+        def __init__(self, brand, speed, type, s):
+            s = "Type:"
+            type = "for mountains"
+            super().__init__(brand, speed, type, s)
+
+    car = Car("Toyota", 120, number_of_doors="", s="")
+    bike = Bike("Yamaha", 200, type="", s="")
+
+    print(car.describe())
+    print(bike.describe())
+
+    class Polygon:
+        def __init__(self, sides):
+            self.sides = sides
+
+        def display_info(self):
+            if self.sides > 4:
+                return f"This polygon has {self.sides} sides"
+            elif self.sides == 4:
+                return f"It is square, it has {self.sides} sides"
+            elif self.sides == 3:
+                return f"It is triangle, it has {self.sides} sides"
+            else:
+                return f"It is not a figure"
+
+    class Triangle(Polygon):
+        def __init__(self, sides):
+            super().__init__(sides)
+
+    class Square(Polygon):
+        def __init__(self, sides):
+            super().__init__(sides)
+
+
+    tri = Triangle(int(input("Enter a quantity of sides: ")))
+    sq = Square(int(input("Enter a quantity of sides: ")))
+
+    print(tri.display_info())
+    print(sq.display_info())
