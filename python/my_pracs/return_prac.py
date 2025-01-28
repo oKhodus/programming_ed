@@ -1358,3 +1358,106 @@ def done():
 
     print(tri.display_info())
     print(sq.display_info())
+
+    class Flyable:
+        def fly(self):
+            return f"I can fly!"
+
+    class Swimmable:
+        def swim(self):
+            return f"I can swim!"
+
+
+    class Duck(Flyable, Swimmable):
+        pass
+
+    duck = Duck()
+    print(duck.fly(), duck.swim())
+
+    from abc import ABC, abstractmethod
+    from math import sqrt, pi
+
+    class Shape(ABC):
+        @abstractmethod
+        def area(self):
+            pass
+
+    class Square(Shape):
+        def __init__(self, side):
+            self.side = side
+
+        def area(self):
+            return self.side * self.side
+
+    class Circle(Shape):
+        def __init__(self, radius):
+            self.radius = radius
+
+        def area(self):
+            return pi * self.radius ** 2
+
+
+    sq = Square(5)
+    print(f"Square area: {sq.area()}")
+
+    circle = Circle(7)
+    print(f"Circle area: {round(circle.area(), 2)}")
+
+    class LoggerMixin:
+        def log(self, message):
+            print(f"[LOG]: {message}")
+
+    class App(LoggerMixin):
+        def run(self):
+            self.log("App is running")
+
+    app = App()
+    app.run()
+
+    class Book:
+        def __init__(self, title, author):
+            self.title = title
+            self.author = author
+
+        def __str__(self):
+            return f"Book: {self.title}\nAuthor: {self.author}"
+
+        def __eq__(self, other):
+            return self.title == other.title and self.author == other.author
+
+    book1 = Book("1984", "G. Orwell")
+    book2 = Book("1984", "G. Orwell")
+
+    check = book1 == book2
+
+    print(f"{book1}\n{book2}"if check else "Books are different")
+
+
+    class Piano:
+        def play(self):
+            return  f'Playing piano music'
+
+    class Guitar:
+        def play(self):
+            return  f'Playing guitar music'
+
+    def play_music(instrument):
+        print(instrument.play())
+
+    play_music(Piano())
+    play_music(Guitar())
+
+    class Battery:
+        def charge(self):
+            print(f"Battery is charging...") 
+
+    class Phone:
+        def __init__(self):
+            self.battery = Battery()
+
+        def charge_phone(self):
+            self.battery.charge()
+            print("Phone is charging...")
+
+    phone = Phone()
+    phone.charge_phone()
