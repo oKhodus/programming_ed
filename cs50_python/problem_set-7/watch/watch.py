@@ -6,7 +6,7 @@ def main():
 
 
 def parse(s):
-    if "youtube" not in s or "<iframe" not in s:
+    if "youtube" not in s or "<iframe" not in s or "?" in s:
         return None
     url = ""
     if extension := re.search(r"(https?://)(www\.)?youtube\.com/(embed/)?\w+", s):
@@ -14,7 +14,6 @@ def parse(s):
     url = url.replace("http:", "https:")
     url = url.replace("www.", "")
     url = url.replace("youtube.com/embed", "youtu.be")
-
     return url
 
 
