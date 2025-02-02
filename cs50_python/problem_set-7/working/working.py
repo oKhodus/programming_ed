@@ -22,35 +22,38 @@ def convert(s):
         or re.findall(mixed_1, s)
         or re.findall(mixed_2, s)
     )
-
+    ValErr = False
     if not time:
-        return ValueError
-
-    if len(time[0]) == 4:
-        from_hour, from_period, to_hour, to_period = time[0]
-        from_min, to_min = "00", "00"
-    elif len(time[0]) == 5:
-        if ":" in s.split(" to ")[0]:
-            from_hour, from_min, from_period, to_hour, to_period = time[0]
-            to_min = "00"
+        raise ValueError
+    try:
+        if len(time[0]) == 4:
+            from_hour, from_period, to_hour, to_period = time[0]
+            from_min, to_min = "00", "00"
+        elif len(time[0]) == 5:
+            if ":" in s.split(" to ")[0]:
+                from_hour, from_min, from_period, to_hour, to_period = time[0]
+                to_min = "00"
+            else:
+                from_hour, from_period, to_hour, to_min, to_period = time[0]
+                from_min = "00"
         else:
-            from_hour, from_period, to_hour, to_min, to_period = time[0]
-            from_min = "00"
-    else:
-        from_hour, from_min, from_period, to_hour, to_min, to_period = time[0]
+            from_hour, from_min, from_period, to_hour, to_min, to_period = time[0]
 
-    def to_24h(hour, minute, period):
-        hour = int(hour)
-        if period == "PM" and hour != 12:
-            hour += 12
-        if period == "AM" and hour == 12:
-            hour = 0
-        return f"{hour:02}:{minute}"
+        def to_24h(hour, minute, period):
+            hour = int(hour)
+            if period == "PM" and hour != 12:
+                hour += 12
+            if period == "AM" and hour == 12:
+                hour = 0
+            return f"{hour:02}:{minute}"
 
-    from_t = to_24h(from_hour, from_min, from_period)
-    to_t = to_24h(to_hour, to_min, to_period)
+        from_t = to_24h(from_hour, from_min, from_period)
+        to_t = to_24h(to_hour, to_min, to_period)
 
-    return f"{from_t} to {to_t}"
+        return f"{from_t} to {to_t}"
+    except ValueError:
+        ValErr = True
+        sys.exit(1)
 
 
 if __name__ == "__main__":
