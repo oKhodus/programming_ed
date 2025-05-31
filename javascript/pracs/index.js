@@ -60,3 +60,29 @@ function letvar_loop() {
 }
 letvar_loop()
 
+
+
+"use strict";
+
+let message = "Hello";
+
+console.log(message, "World");
+
+
+let admin;
+let $name;
+
+$name = 'John';
+admin = $name;
+alert(admin);
+
+alert("I'm JavaScript");
+
+let $planetName = 'Earth';
+let $usersName;
+
+let $myname = "Oleksii";
+alert(`hello, ${$myname}`);
+
+let result = prompt("What's your name?");
+alert(`hello, ${result}`)
