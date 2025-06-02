@@ -4,11 +4,19 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Converter</title>
+    <link rel="stylesheet" href="s.css">
 </head>
 <body>
-    <input type="text" id="inp1">
-    <button onclick="conv()">to Conv</button>
-    <script src="index.js"></script>
-    <div id="out"></div>
+    <div class="container">
+        <p class="welc">Welcome to converter!</p>
+        <input type="text" id="inp1" placeholder="Enter value to convert:">
+        <label>
+            <input type="checkbox" id="check_cmtoin"> Convert cm to in
+        </label>
+        <button onclick="conv()" class="b1">Convert</button>
+        <div id="out"></div>
+        <script src="index.js"></script>
+        
+    </div>
 </body>
 </html>
