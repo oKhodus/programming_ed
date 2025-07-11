@@ -44,4 +44,99 @@ Sliced array where integers <= 10: {sliced}\n\
     \nFinal array: {arr}"
 
 
-print(imple_arr())
+# print(imple_arr())
+
+class Node:
+    def __init__(self, data):
+        self.data = data
+        self.next = None
+
+    def __repr__(self):
+        return self.data
+
+class LinkedList:
+    def __init__(self):
+        self.head = None
+        
+    def __repr__(self):
+        node = self.head
+        nodes = []
+        while node:
+            nodes.append(node.data)
+            node = node.next
+        nodes.append('None')
+        return ' -> '.join(nodes)
+
+    def __iter__(self):
+        node = self.head
+        while node:
+            yield node
+            node = node.next
+
+    def add_head(self, node):
+        node.next = self.head
+        self.head = node
+
+    def add_tail(self, node):
+        if self.head is None:
+            self.head = node
+            return
+        for current_node in self:
+            pass
+        current_node.next = node    
+    
+    def add_after(self, target, new_node):
+        if self.head is None:
+            raise Exception('List is empty')
+        for node in self:
+            if node.data == target:
+                new_node.next = node.next
+                node.next = new_node
+                return
+        raise Exception(f'Node with data {target} not found')
+    
+    def add_before(self, target, new_node):
+        if not self.head:
+            return Exception('List is empty')
+        if self.head.data == target:
+            return self.add_head(new_node)
+        
+        prev = self.head
+        for node in self:
+            if node.data == target:
+                prev.next = new_node
+                new_node.next = node
+                return
+            prev = node
+        raise Exception(f'Node with data {target} not found')
+    
+    def remove_node(self, target):
+        if not self.head:
+            return Exception('List is empty')
+        
+        if self.head.data == target:
+            self.head = self.head.next
+            return
+        
+        prev = self.head
+        for node in self:
+            if node.data == target:
+                prev.next = node.next
+                return
+            prev = node
+        raise Exception(f'Node with data {target} not found')
+
+ll = LinkedList()
+
+ll.add_head(Node('a'))
+ll.add_head(Node('b'))
+ll.add_head(Node('c'))
+ll.add_tail(Node('z'))
+ll.add_tail(Node('x'))
+ll.add_tail(Node('y'))
+
+ll.add_after('c', Node('afterC'))
+ll.add_before('b', Node('beforeB'))
+ll.remove_node('z')
+
+print(ll)
